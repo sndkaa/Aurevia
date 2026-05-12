@@ -4,12 +4,13 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
-    EditText etCustomerName, etEventName;
+    EditText etCustomerName, etEmail, etPhone, etEventName;
     Button btnDate, btnSubmit;
     TextView tvDate;
     Spinner spCat;
@@ -23,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         etCustomerName = findViewById(R.id.etCustomerName);
+        etEmail = findViewById(R.id.etEmail);
+        etPhone = findViewById(R.id.etPhone);
         etEventName = findViewById(R.id.etEventName);
         btnDate = findViewById(R.id.btnPickDate);
         tvDate = findViewById(R.id.tvDate);
@@ -45,19 +48,52 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnSubmit.setOnClickListener(v -> {
-            String customerName = etCustomerName.getText().toString();
-            String eventName = etEventName.getText().toString();
+            String customerName = etCustomerName.getText().toString().trim();
+            String email = etEmail.getText().toString().trim();
+            String phone = etPhone.getText().toString().trim();
+            String eventName = etEventName.getText().toString().trim();
             int rgId = rgV.getCheckedRadioButtonId();
 
-            // Validation
+            // Regex: Nama Pemesan hanya huruf, Nama Event boleh ada angka
+            String regexNama = "^[a-zA-Z\\s]+$";
+            String regexEvent = "^[a-zA-Z0-9\\s]+$";
+
+            // Validasi Nama Pemesan
             if (customerName.isEmpty()) {
                 etCustomerName.setError("Nama pemesan tidak boleh kosong!");
                 return;
+            } else if (!customerName.matches(regexNama)) {
+                etCustomerName.setError("Nama hanya boleh berisi huruf dan spasi!");
+                return;
             }
+
+            // Validasi Email
+            if (email.isEmpty()) {
+                etEmail.setError("Email tidak boleh kosong!");
+                return;
+            } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                etEmail.setError("Format email tidak valid!");
+                return;
+            }
+
+            // Validasi Nomor Telepon
+            if (phone.isEmpty()) {
+                etPhone.setError(getString(R.string.err_phone_empty));
+                return;
+            } else if (!Patterns.PHONE.matcher(phone).matches()) {
+                etPhone.setError(getString(R.string.err_phone_invalid));
+                return;
+            }
+
+            // Validasi Nama Event
             if (eventName.isEmpty()) {
                 etEventName.setError("Nama event tidak boleh kosong!");
                 return;
+            } else if (!eventName.matches(regexEvent)) {
+                etEventName.setError("Nama event hanya boleh berisi huruf, angka, dan spasi!");
+                return;
             }
+
             if (selectedDate.isEmpty() || rgId == -1) {
                 Toast.makeText(this, "Mohon lengkapi Tanggal dan Tipe Venue!", Toast.LENGTH_SHORT).show();
                 return;
@@ -67,6 +103,8 @@ public class MainActivity extends AppCompatActivity {
             // Data Persistence (SharedPreferences)
             SharedPreferences.Editor edit = getSharedPreferences("AUREVIA_DATA", MODE_PRIVATE).edit();
             edit.putString("nama_pemesan", customerName);
+            edit.putString("email", email);
+            edit.putString("telpon", phone);
             edit.putString("nama", eventName);
             edit.putString("tgl", selectedDate);
             edit.putString("kat", spCat.getSelectedItem().toString());

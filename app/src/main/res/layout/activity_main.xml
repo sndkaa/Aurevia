@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="50dp">
+        android:padding="20dp">
 
         <ImageView
             android:layout_width="100dp"
@@ -44,16 +44,34 @@
                     android:id="@+id/etCustomerName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Nama Pemesan"
+                    android:hint="@string/hint_customer_name"
                     android:background="@drawable/edittext_border"
                     android:layout_marginBottom="15dp"
                     android:inputType="textPersonName"/>
 
                 <EditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_email"
+                    android:background="@drawable/edittext_border"
+                    android:layout_marginBottom="15dp"
+                    android:inputType="textEmailAddress"/>
+
+                <EditText
+                    android:id="@+id/etPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_phone"
+                    android:background="@drawable/edittext_border"
+                    android:layout_marginBottom="15dp"
+                    android:inputType="phone"/>
+
+                <EditText
                     android:id="@+id/etEventName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Nama Event"
+                    android:hint="@string/hint_event_name"
                     android:background="@drawable/edittext_border"
                     android:layout_marginBottom="15dp"/>
 
@@ -61,7 +79,7 @@
                     android:id="@+id/btnPickDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="📅 Pilih Tanggal"
+                    android:text="@string/btn_pick_date"
                     android:backgroundTint="@color/background_gray"
                     android:textColor="@color/primary" />
 
@@ -69,7 +87,7 @@
                     android:id="@+id/tvDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Tanggal belum dipilih"
+                    android:text="@string/tv_default_date"
                     android:gravity="center"
                     android:layout_marginBottom="15dp"/>
 
@@ -85,22 +103,22 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-                    <RadioButton android:id="@+id/rbIndoor" android:text="Indoor" android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
-                    <RadioButton android:id="@+id/rbOutdoor" android:text="Outdoor" android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+                    <RadioButton android:id="@+id/rbIndoor" android:text="@string/rb_indoor" android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
+                    <RadioButton android:id="@+id/rbOutdoor" android:text="@string/rb_outdoor" android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content"/>
                 </RadioGroup>
 
                 <CheckBox
                     android:id="@+id/cbInsurance"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Gunakan Asuransi Acara"
+                    android:text="@string/cb_insurance"
                     android:layout_marginTop="10dp"/>
 
                 <Button
                     android:id="@+id/btnSubmit"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
-                    android:text="DAFTARKAN EVENT"
+                    android:text="@string/btn_submit"
                     android:backgroundTint="@color/primary"
                     android:layout_marginTop="20dp"/>
             </LinearLayout>

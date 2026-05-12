@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">Aurevia</string>
+    <string name="hint_customer_name">Nama Pemesan</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_phone">Nomor Telepon</string>
+    <string name="hint_event_name">Nama Event</string>
+    <string name="btn_pick_date">📅 Pilih Tanggal</string>
+    <string name="tv_default_date">Tanggal belum dipilih</string>
+    <string name="rb_indoor">Indoor</string>
+    <string name="rb_outdoor">Outdoor</string>
+    <string name="cb_insurance">Gunakan Asuransi Acara</string>
+    <string name="btn_submit">DAFTARKAN EVENT</string>
+
+    <string name="title_confirmation">KONFIRMASI AUREVIA</string>
+    <string name="loading_data">Memuat data...</string>
+    <string name="btn_website">🌐 Website Resmi</string>
+    <string name="btn_share">📤 Bagikan Detail</string>
+
+    <string name="label_phone">Nomor Telepon: </string>
+    <string name="err_phone_empty">Nomor telepon tidak boleh kosong!</string>
+    <string name="err_phone_invalid">Format nomor telepon tidak valid!</string>
 </resources>

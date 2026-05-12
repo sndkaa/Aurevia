@@ -23,6 +23,8 @@ public class DetailFragment extends Fragment {
 
         String hasil = "--- Ringkasan Event Aurevia ---\n\n" +
                 "Nama Pemesan: " + p.getString("nama_pemesan", "") + "\n" +
+                "Email: " + p.getString("email", "") + "\n" +
+                "Nomor Telepon: " + p.getString("telpon", "") + "\n" +
                 "Nama Acara: " + p.getString("nama", "") + "\n" +
                 "Tanggal Pelaksanaan: " + p.getString("tgl", "") + "\n" +
                 "Kategori: " + p.getString("kat", "") + "\n" +
@@ -32,7 +34,7 @@ public class DetailFragment extends Fragment {
 
         // Implicit Intent 1: Membuka Browser
         view.findViewById(R.id.btnWeb).setOnClickListener(v -> {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://budiluhur.ac.id")));
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://artatix.co.id/")));
         });
 
         // Implicit Intent 2: Fitur Share
