@@ -1,6 +1,5 @@
- UTS Mobile Programming - Aurevia Event Planner
-
-Aplikasi Aurevia adalah platform manajemen perencanaan acara modular yang dirancang untuk memenuhi kriteria Ujian Tengah Semester mata kuliah Mobile Programming.
+UTS Mobile Programming - Aurevia Event Planner
+Aurevia adalah platform manajemen perencanaan acara berbasis modular yang dirancang untuk memberikan kemudahan bagi pengguna dalam mengorganisir berbagai jenis event secara sistematis, cepat, dan terintegrasi.
 
 
 ## Identitas Mahasiswa
